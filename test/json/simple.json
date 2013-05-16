@@ -1,0 +1,11 @@
+{
+    "order": [
+      "a simple title"
+    ]
+  , "content": {
+        "a simple title": {
+            "head": "# a simple title"
+          , "body": "Some text"
+        }
+  }
+}

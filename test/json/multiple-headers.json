@@ -1,0 +1,17 @@
+{
+    "order": [ "First header", "Second header", "Third header"]
+  , "content": {
+      "First header": {
+          "head": "# First header"
+        , "body": ""
+      }
+    , "Second header": {
+          "head": "## Second header"
+        , "body": "a paragraph"
+    }
+    , "Third header": {
+          "head": "## Third header"
+        , "body": "another paragraph"
+    }
+  }
+}

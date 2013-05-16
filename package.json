@@ -1,0 +1,19 @@
+{
+  "name": "jsonmark",
+  "author": "David Björklund <david.bjorklund@gmail.com> (http://davidbjorklund.se)",
+  "description": "Parse markdown to a very simple json-format that can then be stringified back to markdown",
+  "version": "0.0.0",
+  "repository": {
+    "url": "git://github.com/kesla/jsonmark.git"
+  },
+  "main": "jsonmark.js",
+  "scripts": {
+    "test": "tap test/*.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tap": "~0.4.0",
+    "interpreted": "git://github.com/kesla/interpreted.git#support-string-expected"
+  },
+  "licence": "MIT"
+}
