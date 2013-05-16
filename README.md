@@ -1,4 +1,4 @@
-# jsonmark
+# jsonmark[![build status](https://secure.travis-ci.org/kesla/jsonmark.png)](http://travis-ci.org/kesla/jsonmark)
 
 Parse markdown to a very simple json-format that can then be stringified back to markdown
 
