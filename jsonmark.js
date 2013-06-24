@@ -51,6 +51,13 @@ module.exports = {
     }
   , parse: function(markdown) {
       var rows = markdown.split('\n')
+
+      if (markdown.trim() === '')
+        return {
+            order: []
+          , content: {}
+        }
+
       return {
             order: this._parseOrder(rows)
           , content: this._parseContent(rows)
