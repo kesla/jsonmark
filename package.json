@@ -2,7 +2,7 @@
   "name": "jsonmark",
   "author": "David Björklund <david.bjorklund@gmail.com> (http://davidbjorklund.se)",
   "description": "Parse markdown to a very simple json-format that can then be stringified back to markdown",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "repository": {
     "url": "git://github.com/kesla/jsonmark.git"
   },
