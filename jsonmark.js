@@ -6,56 +6,56 @@ module.exports = {
       return row.match(HEADER_STRING)[1]
     }
   , _parseContent: function(rows) {
-        var headerObj
-          , content = {}
-          , self = this
-          , stringifyBody = function(bodyObj) {
-              // trim to remove especially any beginning/end newlines
-              return bodyObj.join('\n').trim()
-            }
-
-        rows.forEach(function(row) {
-          if (IS_HEADER.test(row)) {
-            // finish the previous headerObj
-            if (headerObj)
-              headerObj.body = stringifyBody(headerObj.body)
-
-            // create the new headerObj
-            headerObj = {
-                head: row
-              , body: []
-            }
-
-            // and add it to the content-object
-            content[self._getHeader(row)] = headerObj
-          } else {
-            headerObj.body.push(row)
+      var headerObj
+        , content = {}
+        , self = this
+        , stringifyBody = function(bodyObj) {
+            // trim to remove especially any beginning/end newlines
+            return bodyObj.join('\n').trim()
           }
-        })
 
-        // and finish the last headerObj
-        headerObj.body = stringifyBody(headerObj.body)
+      rows.forEach(function(row) {
+        if (IS_HEADER.test(row)) {
+          // finish the previous headerObj
+          if (headerObj)
+            headerObj.body = stringifyBody(headerObj.body)
 
-        return content
-      }
+          // create the new headerObj
+          headerObj = {
+              head: row
+            , body: []
+          }
+
+          // and add it to the content-object
+          content[self._getHeader(row)] = headerObj
+        } else {
+          headerObj.body.push(row)
+        }
+      })
+
+      // and finish the last headerObj
+      headerObj.body = stringifyBody(headerObj.body)
+
+      return content
+    }
   , _parseOrder: function(rows) {
-        var self = this
+      var self = this
 
-        return rows
-          .filter(function(row) {
-            return row[0] === '#'
-          })
-          .map(function(row) {
-            return self._getHeader(row)
-          })
-      }
+      return rows
+        .filter(function(row) {
+          return row[0] === '#'
+        })
+        .map(function(row) {
+          return self._getHeader(row)
+        })
+    }
   , parse: function(markdown) {
-        var rows = markdown.split('\n')
-        return {
-              order: this._parseOrder(rows)
-            , content: this._parseContent(rows)
-          }
-      }
+      var rows = markdown.split('\n')
+      return {
+            order: this._parseOrder(rows)
+          , content: this._parseContent(rows)
+        }
+    }
   , stringify: function(json) {
       var order = json.order
         , content = json.content
